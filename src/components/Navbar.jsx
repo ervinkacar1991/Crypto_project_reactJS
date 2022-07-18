@@ -7,7 +7,7 @@ const Navbar = () => {
   const [nav, setNav] = useState(false);
 
   const handleNav = () => {
-    setNav(true);
+    setNav(!nav);
   };
 
   return (
@@ -38,7 +38,7 @@ const Navbar = () => {
         className={
           nav
             ? "md:hidden fixed left-0 top-20 flex-col items-center justify-between w-full h-[90%] bg-primary ease-in duration-300 z-10"
-            : "fixed left-[-100%]top-20 h-[90%] flex flex-col justify-between ease-in duration-300"
+            : "fixed left-[-100%] top-20 h-[90%] flex flex-col justify-between ease-in duration-300"
         }
       >
         <ul className="w-full p-4">
