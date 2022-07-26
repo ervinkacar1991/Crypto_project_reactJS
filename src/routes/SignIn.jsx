@@ -1,25 +1,22 @@
 import React, { useState } from "react";
 import { AiOutlineMail, AiFillLock } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
-import { signIn, UserAuth } from "../context/AuthContext";
+import { UserAuth } from "../context/AuthContext";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+
   const navigate = useNavigate();
   const { signIn } = UserAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+
     try {
       await signIn(email, password);
       navigate("/account");
-    } catch (e) {
-      setError(e.message);
-      console.log(e.message);
-    }
+    } catch (e) {}
   };
   return (
     <div>

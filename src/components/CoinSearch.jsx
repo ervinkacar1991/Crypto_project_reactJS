@@ -36,15 +36,11 @@ const CoinSearch = ({ coins }) => {
         </thead>
         <tbody>
           {coins
-            .filter((value) => {
-              if (searchText === "") {
-                return value;
-              } else if (
+            .filter(
+              (value) =>
+                searchText === "" ||
                 value.name.toLowerCase().includes(searchText.toLowerCase())
-              ) {
-                return value;
-              }
-            })
+            )
             .map((coin) => (
               <CoinItem key={coin.id} coin={coin} />
             ))}
